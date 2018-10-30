@@ -17,17 +17,20 @@ let filteredArray = testSample.filter(function (element){
         }
     }//end for
 });
-
+console.log(`filtered Array is: ${filteredArray}`);
 let filteredSteps = filteredArray.map(function(steps){
     return (steps[0] + steps[1]);
 });
-
-let eachSteps = filteredArray.forEach(function(steps){
-    steps += steps;
-    return steps; //console.log(`turtle took ${steps} steps.`);
+console.log(`turtle took in each steps: ${filteredSteps}`);
+let totalSteps = 0;
+filteredArray.forEach(function(steps){
+    for(let i = 0; i < steps.length; i++){
+    totalSteps += steps[i];
+    }
+    
 });
-
+console.log(`total steps is ${totalSteps}`);
 //eachSteps.reduce((a, b)=> a+b);
-console.log(typeof(eachSteps));
+//console.log(whatsGoingOn);
 // let totalSteps = testSample.map();
 //console.log(filteredSteps);
