@@ -5,17 +5,19 @@ let inputString = 'noggin oreo the moon time tele steed his tent apollo her live
 
 //You will need to convert the input to an array before using .reduce()
 inputString = inputString.split(" ");
-
-let myTargetString = inputString.reduce(combine);
-
-
+//invoke the reduce method to add together the strings
+let myTargetString = inputString.reduce((acc, cur)=> (cur.length===3)? acc + " ": acc + cur[cur.length -1].toUpperCase(), '');
+let myOtherString = inputString.reduce(combine, '');
+//accumulator, currentValue, and index.
+// The accumulator(acc) accumulates the callback's return values. so, the sum of every element added together, after the logic is applied to each element.
+//cur is the current element being processed in the array.
+//index is the current element's index in the array that the reduce method is being called on.
  function combine(acc, cur, idx){
    
-    if(idx === 1){
-       
-        acc = acc[acc.length -1].toUpperCase();
-        
-    }
+    // if(idx === 1 && acc.length > 3){
+    //    //here the first index is being checked
+    //     acc = acc[acc.length -1].toUpperCase();
+    // }
     if(cur.length === 3){       // If the array element is exactly three characters in length
         acc += " ";             // add a space character to your accumulator
     }
@@ -26,5 +28,6 @@ let myTargetString = inputString.reduce(combine);
  }
 
  console.log(myTargetString);
+ console.log(myOtherString);
 
-//HINT: When you invoke reduce() you will need to set the initialValue parameter to an empty string so that future iterations can concatenate more string characters.. ummm */
+//HINT: When you invoke reduce() you will need to set the initialValue parameter to an empty string so that future iterations can concatenate more string characters..
